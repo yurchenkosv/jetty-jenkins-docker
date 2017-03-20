@@ -3,7 +3,7 @@ node ('Docker-test') {
         git 'https://github.com/yurchenkosv/jetty-jenkins-docker.git'
     }
     stage ("Build"){
-        sh "'${MAVEN_HOME}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+        sh "$MAVEN_HOME/bin/mvn -Dmaven.test.failure.ignore clean package"
     }
     stage('Results') {
         archive 'target/*.jar'
