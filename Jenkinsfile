@@ -1,4 +1,4 @@
-node (Docker-test) {
+node ('Docker-test') {
     stage ("Preparations"){
         git 'https://github.com/yurchenkosv/jetty-jenkins-docker.git'
     }
