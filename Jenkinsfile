@@ -9,6 +9,6 @@ node ('Docker-test') {
         archive 'target/*.jar'
     }
     stage('Publish'){
-        sh 'docker build -t localhost:5000/jettyweb .'
+        sh 'docker build -t localhost:5000/jettyweb . && docker push localhost:5000/jettyweb'
     }
 }
