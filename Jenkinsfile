@@ -21,4 +21,7 @@ node ('Docker-test') {
         sh "'${nodeHome}'/bin/newman run -d '${postmanFixturesFile}' -n 1 -r junit --reporter-junit-export target/surefire-reports/'${appName}'.xml -x '${postmanCollectionFile}'"
         junit '**/target/surefire-reports/*.xml'
     }
+    stage ('Finish'){
+        sh "docker stop `docker ps |grep localhost:5000/jettyweb | awk {' print $1 '}`"
+    }
 }
