@@ -9,6 +9,7 @@ node ('Docker-test') {
         nodejs(nodeJSInstallationName: 'nodeJS-auto') {
             sh 'npm config ls'
         }
+    }
     stage ("Build"){
         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
     }
