@@ -1,4 +1,7 @@
 node ('Docker-test') {
+    tools {
+        nodejs 'nodeJS-auto'
+    }
     stage ("Preparations"){
         git 'https://github.com/yurchenkosv/jetty-jenkins-docker.git'
         mvnHome = tool 'M339-auto'
