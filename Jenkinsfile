@@ -15,7 +15,7 @@ node ('Docker-test') {
         archive 'target/*.jar'
     }
     stage('Publish'){
-        sh "docker build -t '${repo}'/'${appName}' . && docker push '${repo}'/'${appName}'"
+        sh "docker build -t '${repo}'/'${appName}' . && docker push '${repo}'/'${appName}' && docker run -d -p 8680:8680 '${repo}'/'${appName}'"
     }
     stage ('IntegrationTests'){
         sh "'${nodeHome}'/bin/newman run -d '${postmanFixturesFile}' -n 1 -r junit --reporter-junit-export target/surefire-reports/'${appName}'.xml -x '${postmanCollectionFile}'"
