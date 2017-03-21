@@ -9,6 +9,7 @@ node ('Docker-test') {
     }
     stage('Results') {
         archive 'target/*.jar'
+        junit '**/target/surefire-reports/*.xml'
     }
     stage('Publish'){
         sh 'docker build -t localhost:5000/jettyweb . && docker push localhost:5000/jettyweb'
