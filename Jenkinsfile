@@ -22,6 +22,6 @@ node ('Docker-test') {
         junit '**/target/surefire-reports/*.xml'
     }
     stage ('Finish'){
-        sh "docker stop `docker ps |grep localhost:5000/jettyweb | awk {' print $1 '}`"
+        sh "docker stop `docker ps |grep localhost:5000/jettyweb | awk {' print \$1 '}`"
     }
 }
