@@ -6,9 +6,7 @@ node ('Docker-test') {
         repo = 'localhost:5000'
         postmanFixturesFile = 'ServerUpAndRunningFixtures.json'
         postmanCollectionFile = 'DockerTestApp.postman_collection.json'
-        nodejs(nodeJSInstallationName: 'nodeJS-auto') {
-            sh 'npm config ls'
-        }
+        tool 'nodeJS-auto'
     }
     stage ("Build"){
         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
