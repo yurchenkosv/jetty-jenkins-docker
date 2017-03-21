@@ -19,5 +19,8 @@ public class Main {
         server.dumpStdErr();
         server.join();
     }
+    public static int Running(){
+        return 1;
+    }
 
 }
