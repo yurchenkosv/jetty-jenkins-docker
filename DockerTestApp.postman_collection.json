@@ -1,0 +1,36 @@
+{
+	"variables": [],
+	"info": {
+		"name": "DockerTestApp",
+		"_postman_id": "d5fbf67a-3021-c843-b824-30363ad0f18b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ContainerActiveAndRunning",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;",
+							"",
+							"",
+							"tests[\"Body matches string\"] = responseBody.has(\"Jetty\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{address}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
