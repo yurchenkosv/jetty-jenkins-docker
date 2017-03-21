@@ -1,7 +1,4 @@
 node ('Docker-test') {
-    tools {
-        nodejs 'nodeJS-auto'
-    }
     stage ("Preparations"){
         git 'https://github.com/yurchenkosv/jetty-jenkins-docker.git'
         mvnHome = tool 'M339-auto'
@@ -9,7 +6,9 @@ node ('Docker-test') {
         repo = 'localhost:5000'
         postmanFixturesFile = 'ServerUpAndRunningFixtures.json'
         postmanCollectionFile = 'DockerTestApp.postman_collection.json'
-    }
+        nodejs(nodeJSInstallationName: 'nodeJS-auto') {
+            sh 'npm config ls'
+        }
     stage ("Build"){
         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
     }
